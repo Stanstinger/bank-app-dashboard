@@ -2,10 +2,10 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
-import profileImage from "../data/customer-2.jpg";
 import { tokens } from "../theme";
 import {
   Box,
+  Button,
   Divider,
   Drawer,
   IconButton,
@@ -23,11 +23,11 @@ import {
   ChevronLeft,
   ChevronRightOutlined,
   AdminPanelSettingsOutlined,
+  LogoutOutlined,
 } from "@mui/icons-material";
 
 import { TbDeviceAnalytics } from "react-icons/tb";
 import { GrTransaction, GrCurrency } from "react-icons/gr";
-import { RxDashboard } from "react-icons/rx";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
 
@@ -40,10 +40,6 @@ const navItems = [
   {
     text: "Data",
     icon: null,
-  },
-  {
-    text: "Overview",
-    icon: <RxDashboard />,
   },
 
   {
@@ -81,7 +77,7 @@ const navItems = [
   },
 
   {
-    text: "Call Center",
+    text: "Contact Us",
     icon: <FiPhoneCall />,
   },
 ];
@@ -91,12 +87,15 @@ const Sidebar = ({
   isSidebarOpen,
   setIsSidebarOpen,
   isNonMobile,
+  userAccount,
+  logInStatus,
 }) => {
   const { pathname } = useLocation();
   const [active, setActive] = useState("");
   const navigate = useNavigate();
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
+  const logOut = () => logInStatus(false);
 
   useEffect(() => {
     setActive(pathname.substring(1));
@@ -199,7 +198,7 @@ const Sidebar = ({
               <Box
                 component="img"
                 alt="profile"
-                src={profileImage}
+                src={userAccount.userImage}
                 height="40px"
                 width="40px"
                 borderRadius="50%"
@@ -211,20 +210,40 @@ const Sidebar = ({
                   fontSize="0.9rem"
                   sx={{ color: colors.greenAccent[200] }}
                 >
-                  Michael
+                  {userAccount.name.split(" ")[0]}
                 </Typography>
 
                 <Typography
                   fontSize="0.8rem"
                   sx={{ color: colors.greenAccent[100] }}
                 >
-                  Platinum
+                  {userAccount.accountLevel}
                 </Typography>
               </Box>
               <SettingsOutlined
                 sx={{ color: colors.greenAccent[300], fontSize: "25px" }}
               />
             </FlexBetween>
+            <Button
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                mr: "4rem",
+                ml: "0.5rem",
+                mt: "0.9rem",
+                gap: "1rem",
+              }}
+              onClick={logOut}
+            >
+              <LogoutOutlined />
+              <Typography
+                textTransform="capitalize"
+                fontSize="1rem"
+                sx={{ color: colors.greenAccent[100] }}
+              >
+                Logout
+              </Typography>
+            </Button>
           </Box>
         </Drawer>
       )}

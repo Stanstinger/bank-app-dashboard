@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import profileImage from "../data/customer-2.jpg";
 
 import {
   LightModeOutlined,
@@ -27,7 +26,12 @@ import {
 } from "@mui/material";
 import { ColorModeContext, tokens } from "../theme";
 
-const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
+const Navbar = ({
+  isSidebarOpen,
+  setIsSidebarOpen,
+  userAccount,
+  logInStatus,
+}) => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const colorMode = useContext(ColorModeContext);
@@ -36,6 +40,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const isOpen = Boolean(anchorEl);
   const handleClick = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+  const logOut = () => logInStatus(false);
 
   return (
     <AppBar
@@ -49,7 +54,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         {/* LEFT SIDE */}
         <FlexBetween>
           <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-            <MenuIcon />
+            <MenuIcon sx={{ color: colors.grey[700], fontSize: "25px" }} />
           </IconButton>
           <FlexBetween
             backgroundColor={colors.primary[400]}
@@ -68,22 +73,32 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         <FlexBetween>
           <IconButton onClick={colorMode.toggleColorMode}>
             {theme.palette.mode === "dark" ? (
-              <DarkModeOutlined sx={{ fontSize: "25px" }} />
+              <DarkModeOutlined
+                sx={{ color: colors.grey[700], fontSize: "25px" }}
+              />
             ) : (
-              <LightModeOutlined sx={{ fontSize: "25px" }} />
+              <LightModeOutlined
+                sx={{ color: colors.grey[700], fontSize: "25px" }}
+              />
             )}
           </IconButton>
 
           <IconButton>
-            <NotificationsOutlined sx={{ fontSize: "25px" }} />
+            <NotificationsOutlined
+              sx={{ color: colors.grey[700], fontSize: "25px" }}
+            />
           </IconButton>
 
           <IconButton>
-            <MessageOutlined sx={{ fontSize: "25px" }} />
+            <MessageOutlined
+              sx={{ color: colors.grey[700], fontSize: "25px" }}
+            />
           </IconButton>
 
           <IconButton>
-            <SettingsOutlined sx={{ fontSize: "25px" }} />
+            <SettingsOutlined
+              sx={{ color: colors.grey[700], fontSize: "25px" }}
+            />
           </IconButton>
 
           <FlexBetween>
@@ -100,7 +115,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               <Box
                 component="img"
                 alt="profile"
-                src={profileImage}
+                src={userAccount.userImage}
                 height="32px"
                 width="32px"
                 borderRadius="50%"
@@ -111,20 +126,16 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 <Typography
                   fontWeight="bold"
                   fontSize="0.85rem"
-                  sx={{ color: colors.greenAccent[200] }}
+                  sx={{ color: colors.grey[900] }}
                 >
-                  Michael
+                  {userAccount.name.split(" ")[0]}
                 </Typography>
-
-                <Typography
-                  fontSize="0.75rem"
-                  sx={{ color: colors.greenAccent[100] }}
-                >
-                  Platinum
+                <Typography fontSize="0.8rem" sx={{ color: colors.grey[700] }}>
+                  {userAccount.accountLevel}
                 </Typography>
               </Box>
               <ArrowDropDownOutlined
-                sx={{ color: colors.greenAccent[300], fontsize: "25px" }}
+                sx={{ color: colors.grey[900], fontsize: "25px" }}
               />
             </Button>
 
@@ -134,7 +145,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               onClose={handleClose}
               anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
             >
-              <MenuItem onClick={handleClose}>Log Out</MenuItem>
+              <MenuItem onClick={logOut}>Log Out</MenuItem>
             </Menu>
           </FlexBetween>
         </FlexBetween>

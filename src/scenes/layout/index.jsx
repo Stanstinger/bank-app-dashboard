@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 
-const Layout = () => {
+const Layout = ({ account, setLoggedIn }) => {
   const isNonMobile = useMediaQuery("(min-width: 600px)");
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   return (
@@ -14,11 +14,15 @@ const Layout = () => {
         drawerWidth="250px"
         isSidebarOpen={isSidebarOpen}
         setIsSidebarOpen={setIsSidebarOpen}
+        userAccount={account}
+        logInStatus={setLoggedIn}
       />
       <Box flexGrow={1}>
         <Navbar
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
+          userAccount={account}
+          logInStatus={setLoggedIn}
         />
         <Outlet />
       </Box>
