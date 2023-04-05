@@ -1,5 +1,3 @@
-import React from "react";
-
 const FormatCurrency = ({ amount, locale, currency }) => {
   return new Intl.NumberFormat(locale, {
     style: "currency",

@@ -1,51 +1,41 @@
 import React from "react";
 import BarChart from "../../components/BarChart";
-import { Box, useTheme } from "@mui/material";
-import { tokens } from "../../theme";
 import Header from "../../components/Header";
 import PieChart from "../../components/PieChart";
+import "./index.css";
 
 const Analytics = ({ account }) => {
-  const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
   return (
-    <Box m="1.5rem">
-      <Box>
+    <div className="analytics-container">
+      {/* ROW ONE */}
+      <div className="header">
         <Header
           title="Analytics"
           subtitle="Track all your finances and analysis in one go."
         />
-      </Box>
-      {/* GRID */}
-      <Box
-        display="grid"
-        gridTemplateColumns="repeat(12, 1fr)"
-        gridAutoRows="6rem"
-        gap="1rem"
-      >
-        <Box
-          gridColumn="span 6"
-          gridRow="span 3"
-          display="flex"
-          backgroundColor={colors.primary[600]}
-          justifyContent="space-between"
-          gap="2rem"
-        >
+      </div>
+
+      {/* ROW TWO*/}
+
+      <div className="bar__chart-container">
+        <div>
+          <span className="sub-heading">Monthly income projections.</span>
+        </div>
+        <div className="bar-chart">
           <BarChart account={account} />
-        </Box>
-        <Box
-          gridColumn="span 6"
-          gridRow="span 3"
-          display="flex"
-          backgroundColor={colors.primary[600]}
-          justifyContent="space-between"
-          gap="2rem"
-          pl="4rem"
-        >
-          <PieChart transactions={account.transactions} />
-        </Box>
-      </Box>
-    </Box>
+        </div>
+      </div>
+      <div className="pie__chart-container">
+        <div>
+          <span className="sub-heading">Account Summary.</span>
+        </div>
+        <div className="pie-center">
+          <div className="pie-chart">
+            <PieChart transactions={account.transactions} />
+          </div>
+        </div>
+      </div>
+    </div>
   );
 };
 

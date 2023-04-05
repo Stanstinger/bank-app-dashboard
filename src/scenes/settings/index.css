@@ -1,0 +1,155 @@
+.settings-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 100vw;
+  margin: 1.5rem;
+  padding: 2rem;
+  background-color: #fcfbf9;
+  border-radius: 2rem;
+}
+
+.personal-info {
+  margin-left: 7rem;
+}
+
+.personal__info-title span {
+  font-size: 2rem;
+  color: #3d3d3d;
+}
+
+.profile-content {
+  margin-top: 1rem;
+  display: flex;
+  gap: 5rem;
+}
+
+.profile-image img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.profile-info span {
+  font-size: 1.5rem;
+  color: #3d3d3d;
+}
+
+.account-management {
+  margin-top: 6rem;
+}
+
+.management-header span {
+  font-size: 2rem;
+  color: #3d3d3d;
+}
+
+.change__pass-container {
+  margin-top: 1rem;
+  margin-left: 7rem;
+}
+
+.change__pass-container span {
+  font-size: 1rem;
+  color: #3d3d3d;
+}
+
+.change__pass-container form {
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 2rem;
+
+  gap: 2rem;
+  background-color: #d6d3d3;
+  padding: 2rem 2rem;
+  border-radius: 1rem;
+}
+
+form .input-box {
+  margin-bottom: 1.5rem;
+}
+
+.input-box span {
+  display: block;
+  padding-bottom: 0.25rem;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  color: #444;
+}
+
+@media screen and (max-width: 776px) {
+  .change__pass-container {
+    margin-left: 4rem;
+  }
+
+  .personal-info {
+    margin-left: 4rem;
+  }
+
+  .profile-info span {
+    font-size: 1.25rem;
+  }
+
+  .profile-image img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .personal__info-title span {
+    font-size: 1.5rem;
+  }
+
+  .management-header span {
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .change__pass-container {
+    margin-left: 1rem;
+  }
+
+  .personal-info {
+    margin-left: 1rem;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .settings-container {
+    margin: 1rem;
+    padding: 1.5rem;
+
+    border-radius: 1rem;
+  }
+
+  .profile-content {
+    flex-direction: column;
+    /* align-items: center; */
+    margin-left: 2rem;
+  }
+
+  .personal-info {
+    margin-left: 0;
+  }
+
+  .change__pass-container {
+    margin-left: 0;
+  }
+
+  .change__pass-container form {
+    width: 100%;
+  }
+}

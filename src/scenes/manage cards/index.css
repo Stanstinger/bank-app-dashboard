@@ -1,17 +1,27 @@
-.container {
+.manage-container {
+  max-width: 100vw;
   min-height: 100vh;
-  background: #eee;
-  display: flex;
-  /* align-items: center; */
-  /* justify-content: center; */
-  flex-flow: column;
+  margin: 1.5rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: #fcfbf9;
   padding-bottom: 60px;
-  margin-top: 9rem;
-  margin-left: 7rem;
 }
 
-.container form {
-  background: #fff;
+.manage__card-box {
+  min-height: 100vh;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  /* background: #eee; */
+  padding-bottom: 60px;
+  margin-top: 4rem;
+  padding-bottom: 60px;
+  position: relative;
+}
+
+.manage__card-box form {
+  background: #eee;
   border-radius: 5px;
   box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -19,18 +29,18 @@
   padding-top: 160px;
 }
 
-.container form .inputBox {
-  margin-top: 20px;
+form .inputBox {
+  margin-top: 1.5rem;
 }
 
-.container form .inputBox span {
+.inputBox span {
   display: block;
   color: #999;
-  padding-bottom: 5px;
+  padding-bottom: 0.25rem;
 }
 
-.container form .inputBox input,
-.container form .inputBox select {
+.inputBox input,
+.inputBox select {
   width: 100%;
   padding: 10px;
   border-radius: 10px;
@@ -38,19 +48,18 @@
   color: #444;
 }
 
-.container form .flexbox {
+.flexbox {
   display: flex;
-  gap: 15px;
+  gap: 1rem;
 }
 
-.container form .flexbox .inputBox {
+.inputBox {
   flex: 1 1 150px;
 }
 
-.container form .submit-btn {
+.submit-btn {
   width: 100%;
   background: linear-gradient(45deg, blueviolet, deeppink);
-  /* background-image: linear-gradient(to right top, #b69b49, #2c514c); */
   margin-top: 20px;
   padding: 10px;
   font-size: 20px;
@@ -60,117 +69,195 @@
   transition: 0.2s linear;
 }
 
-.container form .submit-btn:hover {
+.submit-btn:hover {
   letter-spacing: 2px;
   opacity: 0.8;
 }
 
-.container .card-container {
+.card-container {
+  width: 390px;
+  height: 250px;
   margin-bottom: -150px;
   position: relative;
-  height: 250px;
-  width: 400px;
+  transition: 1s ease;
+  perspective: 1000px;
+  cursor: pointer;
 }
 
-.container .card-container .front {
-  position: absolute;
-  height: 100%;
+.face {
   width: 100%;
-  top: -100px;
-  left: 100px;
-  /* background: linear-gradient(45deg, blueviolet, deeppink); */
+  height: 100%;
   background-image: linear-gradient(to right top, #b69b49, #2c514c);
-  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.5rem;
+  overflow: hidden;
+  z-index: 1;
+  border-radius: 0.75rem;
+  transition: 0.5s ease-out;
+  transform-style: preserve-3d;
   backface-visibility: hidden;
   box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  padding: 20px;
-  transform: perspective(1000px) rotateY(0deg);
-  transition: transform 0.4s ease-out;
 }
 
-.container .card-container .front .image {
+.images {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 10px;
 }
 
-.container .card-container .front .image img {
-  height: 50px;
+.chip-image img {
+  width: 50px;
+  object-fit: cover;
 }
 
-.container .card-container .front .card-number-box {
+.visa-image img {
+  width: 70px;
+  object-fit: cover;
+}
+
+.card-number-box {
   display: flex;
-  gap: 1.5rem;
-  padding: 1rem 0;
-  font-size: 22px;
-  color: #fff;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
-.container .card-container .front .flexbox {
+.card-number-box span {
+  font-size: 1.5rem;
+}
+
+.holder-details {
   display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
-.container .card-container .front .flexbox .box:nth-child(1) {
-  margin-right: auto;
+.holder-details span {
+  font-size: 0.85rem;
 }
 
-.container .card-container .front .flexbox .box {
-  font-size: 15px;
-  color: #fff;
+.holder-info {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.25rem;
 }
 
-.container .card-container .back {
-  position: absolute;
-  top: -100px;
-  left: 100px;
-  height: 100%;
-  width: 100%;
-  background: linear-gradient(45deg, blueviolet, deeppink);
-  border-radius: 5px;
-  padding: 20px 0;
-  text-align: right;
-  backface-visibility: hidden;
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
-  transform: perspective(1000px) rotateY(180deg);
-  transition: transform 0.4s ease-out;
+.holder-info span {
+  font-size: 1.15rem;
 }
 
-.container .card-container .back .stripe {
-  background: #000;
-  width: 100%;
-  margin: 10px 0;
-  height: 50px;
+.back {
+  transform: rotateY(180deg);
 }
 
-.container .card-container .back .box {
-  padding: 0 20px;
-}
-
-.container .card-container .back .box span {
-  color: #fff;
-  font-size: 15px;
-}
-
-.container .card-container .back .box .cvv-box {
-  height: 50px;
-  padding: 10px;
-  margin-top: 5px;
-  color: #333;
+.back .cvv-container {
   background: #fff;
-  border-radius: 5px;
+  color: #333;
   width: 100%;
+  height: 50px;
+  margin-top: 1.25rem;
+  display: flex;
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
 }
 
-.container .card-container .back .box img {
-  margin-top: 30px;
-  height: 30px;
+.cvv-container span {
+  font-size: 1.35rem;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #000;
 }
 
-.container .flipped .front {
+.stripe img {
+  width: 100%;
+  display: block;
+  line-height: 0;
+  object-fit: cover;
+}
+
+.back-message {
+  margin-top: 1.875rem;
+}
+
+.back-message p {
+  font-size: 1rem;
+}
+
+.signature {
+  display: flex;
+  align-items: center;
+  margin-top: 2.5rem;
+  justify-content: space-between;
+}
+
+.flipped .front {
   transform: perspective(1000px) rotateY(-180deg);
 }
 
-.container .flipped .back {
+.flipped .back {
   transform: perspective(1000px) rotateY(0deg);
+}
+
+@media screen and (max-width: 700px) {
+  .card-container {
+    width: 65%;
+    height: 220px;
+  }
+
+  .manage__card-box form {
+    width: 100%;
+  }
+
+  .card-number-box {
+    margin-top: 1.5rem;
+  }
+
+  .holder-details {
+    margin-top: 1.5rem;
+  }
+
+  .holder-info {
+    margin-top: 0.15rem;
+  }
+
+  .back-message {
+    margin-top: 1.5rem;
+  }
+
+  .signature {
+    margin-top: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .card-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 490px) {
+  .manage-container {
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+  }
+
+  .card-container {
+    width: 90%;
+    height: 210px;
+  }
+
+  .card-number-box span {
+    font-size: 1.25rem;
+  }
+
+  .holder-details span {
+    font-size: 0.65rem;
+  }
+
+  .holder-info span {
+    font-size: 0.9rem;
+  }
 }

@@ -1,0 +1,100 @@
+.analytics-container {
+  margin: 1.5rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: #fcfbf9;
+  max-width: "100vw";
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 5rem;
+  padding-bottom: 7rem;
+}
+
+.header {
+  grid-column: span 12;
+}
+
+.bar__chart-container {
+  grid-column: span 6;
+  grid-row: span 5;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sub-heading {
+  font-size: 1.25rem;
+  color: #2f345c;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.bar-chart {
+  width: 550px;
+  height: 450px;
+  display: flex;
+  justify-content: center;
+}
+
+.pie__chart-container {
+  grid-column: span 6;
+  grid-row: span 3;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  justify-content: space-between;
+}
+
+.pie-chart {
+  width: 400px;
+  height: 400px;
+}
+
+/* Medium Devices*/
+
+@media screen and (max-width: 1200px) {
+  .bar-chart {
+    width: 100%;
+  }
+
+  .pie-chart {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 1050px) {
+  .analytics-container {
+    display: block;
+  }
+
+  .pie__chart-container {
+    margin-top: 5rem;
+  }
+
+  .pie-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .analytics-container {
+    margin: 0.5rem;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .bar-chart {
+    height: 350px;
+  }
+
+  .pie__chart-container {
+    width: 100%;
+  }
+
+  .sub-heading {
+    font-size: 1rem;
+  }
+}

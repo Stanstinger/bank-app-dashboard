@@ -8,7 +8,8 @@ function BarChart({ account }) {
     const date = new Date(transaction.date);
     const month = date.toLocaleString("default", { month: "long" });
     const year = date.getFullYear();
-    const key = `${year}-${month}`;
+    const key = `${month}`;
+    // const key = `${month}-${year}`;
 
     if (!transactionMonths[key]) {
       transactionMonths[key] = 0;
@@ -20,14 +21,14 @@ function BarChart({ account }) {
   const monthKeys = Object.keys(transactionMonths).sort();
   const data = monthKeys.map((key) => ({
     month: key,
-    total: transactionMonths[key],
+    total: transactionMonths[key].toFixed(2),
   }));
   return (
     <ResponsiveBar
       data={data}
       keys={["total"]}
       indexBy="month"
-      margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
+      margin={{ top: 50, right: 70, bottom: 50, left: 60 }}
       padding={0.3}
       valueScale={{ type: "linear" }}
       indexScale={{ type: "band", round: true }}

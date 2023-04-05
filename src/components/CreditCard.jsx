@@ -1,12 +1,16 @@
 import React from "react";
-import { Box, Typography, useTheme } from "@mui/material";
-import { tokens } from "../theme";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+
 import chip from "../data/chip.png";
 import visa from "../data/visa.png";
 import mapImage from "../data/map.png";
 import patternImage from "../data/pattern.png";
 
 const CreditCard = ({ account }) => {
+  const theme = useTheme();
+  const isExtraSmallScreen = useMediaQuery(theme.breakpoints.only("xs"));
+  const isSmallScreen = useMediaQuery(theme.breakpoints.only("sm"));
+  const isMediumScreen = useMediaQuery(theme.breakpoints.only("md"));
   return (
     <>
       {account.cards.map((card, i) => {
@@ -14,8 +18,20 @@ const CreditCard = ({ account }) => {
           <Box
             key={`${card.cardNumber}-${i}`}
             sx={{
-              width: "500px",
-              height: "300px",
+              width: isExtraSmallScreen
+                ? "100%"
+                : isSmallScreen
+                ? "100%"
+                : isMediumScreen
+                ? "335px"
+                : "500px",
+              height: isExtraSmallScreen
+                ? "100%"
+                : isSmallScreen
+                ? "100%"
+                : isMediumScreen
+                ? "210px"
+                : "300px",
               backgroundColor: "#EEEDEB",
               cursor: "pointer",
               position: "relative",
@@ -24,8 +40,24 @@ const CreditCard = ({ account }) => {
                 transform: "rotateY(-180deg)",
               },
             }}
-            gridColumn="span 5"
-            gridRow="span 3"
+            gridColumn={
+              isExtraSmallScreen
+                ? "1"
+                : isSmallScreen
+                ? "span 6"
+                : isMediumScreen
+                ? "span 6"
+                : "span 5"
+            }
+            gridRow={
+              isExtraSmallScreen
+                ? "span 2"
+                : isSmallScreen
+                ? "span 2"
+                : isMediumScreen
+                ? "span 2"
+                : "span 3"
+            }
           >
             <Box
               className="flipper"
@@ -78,28 +110,28 @@ const CreditCard = ({ account }) => {
                     component="img"
                     alt="chip"
                     src={chip}
-                    width="60px"
+                    width={isExtraSmallScreen ? "40px" : "60px"}
                     sx={{ objectFit: "cover" }}
                   />
                   <Box
                     component="img"
                     alt="visa"
                     src={visa}
-                    width="80px"
+                    width={isExtraSmallScreen ? "60px" : "80px"}
                     sx={{ objectFit: "cover" }}
                   />
                 </Box>
-                <Box display="flex" justifyContent="space-between" mt="3.75rem">
-                  <Typography fontSize="2rem">
+                <Box display="flex" justifyContent="space-between" mt="1rem">
+                  <Typography fontSize="1rem">
                     {card.cardNumber.substring(0, 4)}
                   </Typography>
-                  <Typography fontSize="2rem">
+                  <Typography fontSize="1rem">
                     {card.cardNumber.substring(4, 8)}
                   </Typography>
-                  <Typography fontSize="2rem">
+                  <Typography fontSize="1rem">
                     {card.cardNumber.substring(8, 12)}
                   </Typography>
-                  <Typography fontSize="2rem">
+                  <Typography fontSize="1rem">
                     {card.cardNumber.substring(12, 16)}
                   </Typography>
                 </Box>

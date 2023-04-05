@@ -1,0 +1,61 @@
+.payment-container {
+  max-width: 100vw;
+  margin: 1.5rem;
+  padding: 2rem;
+  border-radius: 2rem;
+  background-color: #fcfbf9;
+}
+
+.payment__form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-fields {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.transfer-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 500px;
+  background-color: burlywood;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 576px) {
+  .payment-container {
+    margin: 1rem;
+    padding: 1rem;
+  }
+
+  .payment-header {
+    margin-left: 1rem;
+  }
+
+  .transfer-form {
+    width: 100%;
+    padding: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .account-fields {
+    flex-direction: column;
+    margin-bottom: 1rem;
+  }
+
+  .payment-container {
+    border-radius: 1rem;
+  }
+
+  .transfer-form {
+    gap: 0;
+  }
+}

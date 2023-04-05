@@ -14,10 +14,6 @@ const DisplayTransactions = ({ account }) => {
         const type = transaction.amount > 0 ? "deposit" : "withdraw";
 
         const date = new Date(transaction.date);
-        const formattedTransaction = new Intl.NumberFormat(account.locale, {
-          style: "currency",
-          currency: account.currency,
-        }).format(transaction.amount);
 
         return (
           <Box
