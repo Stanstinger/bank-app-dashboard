@@ -2,7 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
-import PropTypes from "prop-types";
 import { tokens } from "../theme";
 import {
   Box,
@@ -31,6 +30,7 @@ import { TbDeviceAnalytics } from "react-icons/tb";
 import { GrTransaction, GrCurrency } from "react-icons/gr";
 import { BsFillCreditCardFill } from "react-icons/bs";
 import { FiPhoneCall } from "react-icons/fi";
+import Logo from "../data/logo.png";
 
 const navItems = [
   {
@@ -114,12 +114,21 @@ const Sidebar = ({
         <Box m="1.5rem 2rem 2rem 3rem">
           <FlexBetween color={colors.primary[400]}>
             <Box display="flex" alignItems="center" gap="0.5rem">
+              <Box
+                component="img"
+                alt="profile"
+                src={Logo}
+                height="40px"
+                width="40px"
+                borderRadius="50%"
+                sx={{ objectFit: "cover" }}
+              />
               <Typography
-                variant="h4"
+                variant="h5"
                 fontWeight="bold"
                 color={colors.primary[400]}
               >
-                G-BANK
+                BANKEASE
               </Typography>
             </Box>
             {!isNonMobile && (
@@ -221,17 +230,18 @@ const Sidebar = ({
             display: "flex",
             alignItems: "center",
             mr: "4rem",
-            ml: "0.5rem",
+            ml: "1.5rem",
             mt: "0.9rem",
             gap: "1rem",
           }}
           onClick={logOut}
         >
-          <LogoutOutlined />
+          <LogoutOutlined sx={{ color: colors.grey[700] }} />
           <Typography
             textTransform="capitalize"
             fontSize="1rem"
-            sx={{ color: colors.greenAccent[100] }}
+            fontWeight="700"
+            sx={{ color: colors.grey[700] }}
           >
             Logout
           </Typography>
@@ -252,7 +262,7 @@ const Sidebar = ({
       <Drawer
         container={container}
         variant="temporary"
-        open={isSidebarOpen}
+        open={!isSidebarOpen}
         onClose={handleDrawerToggle}
         ModalProps={{
           keepMounted: true, // Better open performance on mobile.

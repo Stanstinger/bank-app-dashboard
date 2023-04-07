@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-
-import { Button, Box, useTheme, TextField } from "@mui/material";
+import { Button, useTheme, TextField } from "@mui/material";
 import { tokens } from "../../theme";
 import { mockAccounts } from "../../data/dummy";
 import { AddOutlined, AccountBalanceOutlined } from "@mui/icons-material";
@@ -236,15 +235,7 @@ const Dashboard = ({ account }) => {
         <div className="quick-transfer">
           <span>Quick Transaction</span>
 
-          <Box
-            component="form"
-            onSubmit={handleSubmit}
-            sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-            marginTop="1rem"
-            bgcolor={colors.primary[500]}
-            p="1rem"
-            borderRadius="1rem"
-          >
+          <form onSubmit={handleSubmit}>
             <TextField
               id="recipientEmail"
               label="Recipient Email"
@@ -292,7 +283,7 @@ const Dashboard = ({ account }) => {
             <Button variant="contained" color="primary" type="submit">
               Send Money
             </Button>
-          </Box>
+          </form>
         </div>
       </div>
 

@@ -109,7 +109,7 @@ const account1 = {
   ],
   currency: "USD",
   locale: "en-US",
-  pin: 1111,
+  password: 1111,
   accountLevel: "Platinum",
 };
 
@@ -129,68 +129,83 @@ const account2 = {
       cardNumber: "4567432178912003",
       expiryMonth: "03",
       expiryYear: "2021",
-      cvv: "423",
+      cvv: "473",
     },
     {
       cardNumber: "3567432178912003",
       expiryMonth: "03",
       expiryYear: "2021",
-      cvv: "423",
+      cvv: "234",
+    },
+
+    {
+      cardNumber: "4269432878982003",
+      expiryMonth: "03",
+      expiryYear: "2021",
+      cvv: "567",
     },
   ],
   transactions: [
     {
-      txId: "01e4dsa",
-      user: "johndoe",
-      date: "2021-09-01",
-      amount: "43.95",
-    },
-    {
       txId: "0315dsaa",
       user: "jackdower",
-      date: "2022-04-01",
-      amount: "133.45",
+      email: "cerseilannister@gmail.com",
+      date: "2023-03-19T07:42:02.383Z",
+      amount: "13.45",
+      status: "Pending",
     },
     {
       txId: "01e4dsa",
       user: "aberdohnny",
-      date: "2021-09-01",
-      amount: "43.95",
+      email: "cerseilannister@gmail.com",
+      date: "2023-03-18T09:15:04.904Z",
+      amount: "430.95",
+      status: "Completed",
     },
     {
       txId: "51034szv",
       user: "goodmanave",
-      date: "2022-11-05",
-      amount: "200.95",
+      email: "cerseilannister@gmail.com",
+      date: "2023-03-18T10:17:24.185Z",
+      amount: "-200.95",
+      status: "Completed",
     },
     {
       txId: "0a123sb",
       user: "stevebower",
-      date: "2022-11-02",
-      amount: "13.55",
+      email: "cerseilannister@gmail.com",
+      date: "2023-02-08T14:11:59.604Z",
+      amount: "1300.55",
+      status: "Pending",
     },
     {
       txId: "01e4dsa",
       user: "aberdohnny",
-      date: "2021-09-01",
-      amount: "-43.95",
+      email: "cerseilannister@gmail.com",
+      date: "2023-02-26T17:01:17.194Z",
+      amount: "400.95",
+      status: "Completed",
     },
     {
       txId: "120s51a",
       user: "wootzifer",
-      date: "2019-04-15",
-      amount: "-24.20",
+      email: "cerseilannister@gmail.com",
+      date: "2022-07-28T23:36:17.929Z",
+      amount: "24.20",
+      status: "Completed",
     },
     {
       txId: "0315dsaa",
       user: "jackdower",
-      date: "2022-04-01",
-      amount: "133.45",
+      email: "cerseilannister@gmail.com",
+      date: "2022-08-01T10:51:36.790Z",
+      amount: "13300.45",
+      status: "Completed",
     },
   ],
   currency: "EUR",
   locale: "pt-PT",
-  pin: 1112,
+  password: 1112,
   accountLevel: "Gold",
 };
 
@@ -205,59 +220,96 @@ const account3 = {
   zipCode: "87281",
   registerdId: 4132513,
   accountNumber: 25661234588,
+  cards: [
+    {
+      cardNumber: "4567432178912003",
+      expiryMonth: "03",
+      expiryYear: "2021",
+      cvv: "473",
+    },
+    {
+      cardNumber: "3567432178912003",
+      expiryMonth: "03",
+      expiryYear: "2021",
+      cvv: "234",
+    },
+
+    {
+      cardNumber: "4269432878982003",
+      expiryMonth: "03",
+      expiryYear: "2021",
+      cvv: "567",
+    },
+  ],
   transactions: [
     {
       txId: "01e4dsa",
       user: "johndoe",
-      date: "2021-09-01",
+      email: "cerseilannister@gmail.com",
+      date: "2023-03-26T23:36:17.929Z",
       amount: "43.95",
+      status: "Completed",
     },
     {
       txId: "0315dsaa",
       user: "jackdower",
-      date: "2022-04-01",
-      amount: "133.45",
+      email: "cerseilannister@gmail.com",
+      date: "2023-02-28T23:36:17.929Z",
+      amount: "-133.45",
+      status: "Completed",
     },
     {
       txId: "01e4dsa",
       user: "aberdohnny",
-      date: "2021-09-01",
-      amount: "43.95",
+      email: "cerseilannister@gmail.com",
+      date: "2023-03-20T23:36:17.929Z",
+      amount: "4300.95",
+      status: "Completed",
     },
     {
       txId: "51034szv",
       user: "goodmanave",
-      date: "2022-11-05",
-      amount: "200.95",
+      email: "cerseilannister@gmail.com",
+      date: "2023-03-28T23:36:17.929Z",
+      amount: "-200.95",
+      status: "Pending",
     },
     {
       txId: "0a123sb",
       user: "stevebower",
-      date: "2022-11-02",
-      amount: "13.55",
+      email: "cerseilannister@gmail.com",
+      date: "2023-03-21T23:36:17.929Z",
+      amount: "1300.55",
+      status: "Completed",
     },
     {
       txId: "01e4dsa",
       user: "aberdohnny",
-      date: "2021-09-01",
+      email: "cerseilannister@gmail.com",
+      date: "2023-02-22T23:36:17.929Z",
       amount: "43.95",
+      status: "Pending",
     },
     {
       txId: "120s51a",
       user: "wootzifer",
-      date: "2019-04-15",
+      email: "cerseilannister@gmail.com",
+      date: "2022-02-20T23:36:17.929Z",
       amount: "24.20",
+      status: "Completed",
     },
     {
       txId: "0315dsaa",
       user: "jackdower",
-      date: "2022-04-01",
+      email: "cerseilannister@gmail.com",
+      date: "2023-01-28T23:36:17.929Z",
       amount: "133.45",
+      status: "Completed",
     },
   ],
   currency: "EUR",
   locale: "pt-PT",
-  pin: 1113,
+  password: 1113,
   accountLevel: "Platinum",
 };
 
@@ -276,7 +328,8 @@ const account4 = {
     {
       txId: "01e4dsa",
       user: "johndoe",
-      date: "2021-09-01",
+      email: "cerseilannister@gmail.com",
+      date: "2020-07-28T23:36:17.929Z",
       amount: "43.95",
     },
     {
@@ -324,7 +377,7 @@ const account4 = {
   ],
   currency: "EUR",
   locale: "pt-PT",
-  pin: 1114,
+  password: 1114,
   accountLevel: "Silver",
 };
 
@@ -334,7 +387,7 @@ const account5 = {
   age: 31,
   userImage: anyaImage,
   phone: "(421)445-1189",
-  address: "11122 Welping Ave, Tenting, CD 21321",
+  address: "11122 Welpasswordg Ave, Tenting, CD 21321",
   city: "Tenting",
   zipCode: "14215",
   registerdId: 123512,
@@ -388,7 +441,7 @@ const account5 = {
       amount: "133.45",
     },
   ],
-  pin: 1115,
+  password: 1115,
   accountLevel: "Gold",
 };
 
@@ -452,7 +505,7 @@ const account6 = {
       amount: "133.45",
     },
   ],
-  pin: 1116,
+  password: 1116,
   accountLevel: "Platinum",
 };
 
@@ -515,7 +568,7 @@ const account7 = {
       amount: "133.45",
     },
   ],
-  pin: 1117,
+  password: 1117,
   accountLevel: "Silver",
 };
 
@@ -578,7 +631,7 @@ const account8 = {
       amount: "133.45",
     },
   ],
-  pin: 1118,
+  password: 1118,
   accountLevel: "Gold",
 };
 
@@ -641,7 +694,7 @@ const account9 = {
       amount: "133.45",
     },
   ],
-  pin: 1119,
+  password: 1119,
   accountLevel: "Platinum",
 };
 
@@ -704,7 +757,7 @@ const account10 = {
       amount: "133.45",
     },
   ],
-  pin: 1120,
+  password: 1120,
   accountLevel: "Gold",
 };
 
@@ -767,7 +820,7 @@ const account11 = {
       amount: "133.45",
     },
   ],
-  pin: 1121,
+  password: 1121,
   accountLevel: "Platinum",
 };
 
